@@ -12,3 +12,12 @@
 - To-Do List
 
 ## How To Use:
+
+Example: Json Request
+```
+import engine
+jsonurl = 'engine.req("api.test.com/v1/json", "varname")'
+engine.event("once","exec " + jsonurl)
+
+engine.compile()
+```
