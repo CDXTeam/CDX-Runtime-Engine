@@ -46,7 +46,7 @@ please make a pr request describing:
 - Why you did it?
 
 ## To-Do List:
-- Finish Functions [ ]
-- Finish ReadMe [ ]
-- Development [x]
-- Planned Release [x]
+- [ ] Finish Functions 
+- [ ] Finish ReadMe
+- [x] Development
+- [x] Planned Release
