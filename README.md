@@ -27,9 +27,13 @@ import engine
 engine.addsprite("image.png", sprite1)
 engine.newscene("scene")
 engine.scene("scene", "engine.event("once",'engine.addobj("sprite1", "x", "y")')
+
+engine.compile()
 ```
 On Input Exit game
 ```python
 import engine
 engine.oninput("x", "engine.exit()")
+
+engine.compile()
 ```
