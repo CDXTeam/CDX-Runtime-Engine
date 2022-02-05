@@ -21,3 +21,10 @@ engine.event("once","exec " + jsonurl)
 
 engine.compile()
 ```
+Add And Create Object Instance
+```python
+import engine
+engine.addsprite("image.png", sprite1)
+engine.newscene("scene")
+engine.scene("scene", engine.addobj("sprite1", "x", "y"))
+```
