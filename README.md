@@ -17,7 +17,7 @@ Example: Json Request
 ```python
 import engine
 jsonurl = 'engine.req("api.test.com/v1/json", "varname")'
-engine.event("once","exec " + jsonurl)
+engine.event("once", jsonurl)
 
 engine.compile()
 ```
@@ -26,5 +26,10 @@ Add And Create Object Instance
 import engine
 engine.addsprite("image.png", sprite1)
 engine.newscene("scene")
-engine.scene("scene", engine.addobj("sprite1", "x", "y"))
+engine.scene("scene", "engine.event("once",'engine.addobj("sprite1", "x", "y")')
+```
+On Input Exit game
+```python
+import engine
+engine.oninput("x", "engine.exit()")
 ```
