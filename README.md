@@ -10,6 +10,7 @@
 - How To Use
 - Contributing
 - To-Do List
+- Documentation
 
 ## How To Use:
 
@@ -50,3 +51,6 @@ please make a pr request describing:
 - [ ] Finish ReadMe
 - [x] Development
 - [x] Planned Release
+
+## Documentation
+Coming Soon!
