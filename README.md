@@ -37,3 +37,16 @@ engine.oninput("x", "engine.exit()")
 
 engine.compile()
 ```
+
+## Contributing: 
+Contributing is highly recommended as it helps the development of the engine.
+please make a pr request describing:
+- The changes youve made
+- Improvements
+- Why you did it?
+
+## To-Do List:
+- Finish Functions [ ]
+- Finish ReadMe [ ]
+- Development [x]
+- Planned Release [x]
