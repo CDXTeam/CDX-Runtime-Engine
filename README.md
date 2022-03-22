@@ -2,7 +2,9 @@
   <img width="250" height="250" src="logo.png">
 </p>
 
-# CDX Code Engine V4 is the Fourth Major Revision Of CDX Code Engine, An GDJS Simplification.
+# CDX Runtime Engine is An Lighter Alternative Of CDX Code Engine.
+### This Turns GDJS Into an Messy Unkown Thing to an Simplified JS Runtime.
+### This Version of CDX Code Engine is Used for the upcoming CDX C-1 Console, Along With NDevelop, an Light Version of GDevelop.
 ### Currently Under Beta.
 
 ## Table Of Contents:
@@ -45,7 +47,7 @@ If you Do Contribute With An Pull Request, Please Specify:
 
 ## To-Do List:
 - [ ] Finish Functions 
-- [ ] Finish ReadMe
+- [ ] Finish ReadME
 - [x] Development
 - [x] Planned Release
 
