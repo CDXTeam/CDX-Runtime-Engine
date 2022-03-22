@@ -2,8 +2,7 @@
   <img width="250" height="250" src="logo.png">
 </p>
 
-# CDX Code Engine V4 is the Fourth Major Revision Of CDX Code Engine, An GDJSON Compiler.
-
+# CDX Code Engine V4 is the Fourth Major Revision Of CDX Code Engine, An GDJS Simplification.
 ### Currently Under Beta.
 
 ## Table Of Contents:
@@ -14,37 +13,35 @@
 
 ## How To Use:
 
-Example: Json Request
-```python
-import engine
-jsonurl = 'engine.req("api.test.com/v1/json", "varname")'
-engine.event("once", jsonurl)
+Create An New Scene And Copy [This Script](/script/engine.js), And Then Either Look At The [Documentation](/docs/engine.md) or Follow These Examples:
 
-engine.compile()
+Example: Json Request
+```javascript
+cvar("url","http://testapi.com")
+cvar("res","")
+req(gvar("url"), "GET", "res")
 ```
 Add And Create Object Instance
-```python
-import engine
-engine.addsprite("image.png", sprite1)
-engine.newscene("scene")
-engine.scene("scene", "engine.event("once",'engine.addobj("sprite1", "x", "y")')
-
-engine.compile()
+```javascript
+var x = 100
+var y = 200
+addobj("sprite1","./sprite1.png")
+crobj("sprite1", x, y)
 ```
 On Input Exit game
-```python
-import engine
-engine.oninput("x", "engine.exit()")
-
-engine.compile()
+```javascript
+var x = sinp("X")
+if (x == true) {
+  gdjsclose()
+}
 ```
 
 ## Contributing: 
 Contributing is highly recommended as it helps the development of the engine.
-please make a pr request describing:
+If you Do Contribute With An Pull Request, Please Specify:
 - The changes youve made
-- Improvements
-- Why you did it?
+- What Are The Improvements
+- Why you did These Changes?
 
 ## To-Do List:
 - [ ] Finish Functions 
@@ -52,5 +49,4 @@ please make a pr request describing:
 - [x] Development
 - [x] Planned Release
 
-## Documentation
-Coming Soon!
+
