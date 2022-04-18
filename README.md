@@ -3,8 +3,7 @@
 </p>
 
 # CDX Runtime Engine is An Lighter Alternative Of CDX Code Engine.
-### This Turns GDJS Into an Messy Unkown Thing to an Simplified JS Runtime.
-### This Version of CDX Code Engine is Used for the upcoming CDX C-1 Console, Along With NDevelop, an Light Version of GDevelop.
+### This Turns GDJS Into an Messy Unknown Thing to an Simplified JS Runtime.
 ### Currently Under Beta.
 
 ## Table Of Contents:
