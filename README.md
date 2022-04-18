@@ -17,13 +17,7 @@
 
 Create An New Scene And Copy [This Script](/script/engine.js), And Then Either Look At The [Documentation](/docs/engine.md) or Follow These Examples:
 
-Example: Json Request
-```javascript
-cvar("url","http://testapi.com")
-cvar("res","")
-req(gvar("url"), "GET", "res")
-```
-Add And Create Object Instance
+Example: Add And Create Object Instance
 ```javascript
 var x = 100
 var y = 200
@@ -41,7 +35,7 @@ if (x == true) {
 ## Contributing: 
 Contributing is highly recommended as it helps the development of the engine.
 If you Do Contribute With An Pull Request, Please Specify:
-- The changes youve made
+- The changes you've made
 - What Are The Improvements
 - Why you did These Changes?
 
