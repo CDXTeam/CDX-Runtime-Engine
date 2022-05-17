@@ -35,7 +35,7 @@ if (x == true) {
 Contributing is highly recommended as it helps the development of the engine.
 If you Do Contribute With An Pull Request, Please Specify:
 - The changes you've made
-- What Are The Improvements
+- What Improvements You've Made
 - Why you did These Changes?
 
 ## To-Do List:
