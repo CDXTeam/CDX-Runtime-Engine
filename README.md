@@ -14,7 +14,7 @@
 
 ## How To Use:
 
-Create An New Scene And Copy [This Script](/script/engine.js), And Then Either Look At The [Documentation](/docs/engine.md) or Follow These Examples:
+Create An New Scene And Copy [This Script](/script/min.engine.js), And Then Either Look At The [Documentation](/docs/engine.md) or Follow These Examples:
 
 Example: Add And Create Object Instance
 ```javascript
@@ -23,11 +23,11 @@ var y = 200
 addobj("sprite1","./sprite1.png")
 crobj("sprite1", x, y)
 ```
-On Input Exit game
+On Input Console Log
 ```javascript
-var x = sinp("X")
+var x = sinp("88")
 if (x == true) {
-  gdjsclose()
+  console.log("X has been pressed!")
 }
 ```
 
