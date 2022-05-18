@@ -1,6 +1,9 @@
 // Variable def
 
 const cdx = {}
+cdx.global = {}
+cdx.input = {}
+cdx.object = {}
 
 // scene variables
 
@@ -78,6 +81,9 @@ cdx.input.keycode = function (keycode) {
 // p2p func
 const p2p = {}
 
+p2p.client = {}
+p2p.data = {}
+p2p.connect = {}
 p2p.connect.server = function (host, port, path, key, ssl) {
   var chknum = isNaN(port)
   if (chknum == false && typeof ssl == "boolean") {
@@ -113,4 +119,14 @@ p2p.data.get = function (name) {
 
 p2p.data.geterror = function (variable) { 
     runtimeScene.getVariables().get(variable).setString(gdjs.evtTools.p2p.getLastError());
+}
+
+// HTTP Requests
+const http = {}
+
+http.request = function(url, method, body = "") { 
+    let xhr = new XMLHttpRequest();
+    xhr.open(method, url, false)
+    xhr.send([body])
+    return xhr.responseText
 }
