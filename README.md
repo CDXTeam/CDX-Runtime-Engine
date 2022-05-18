@@ -20,13 +20,12 @@ Example: Add And Create Object Instance
 ```javascript
 var x = 100
 var y = 200
-addobj("sprite1","./sprite1.png")
-crobj("sprite1", x, y)
+cdx.object.create("foo", "./bar.png", x, y)
 ```
 On Input Console Log
 ```javascript
-var x = sinp("88")
-if (x == true) {
+var x_pressed = cdx.input.keycode("88")
+if (x_pressed == true) {
   console.log("X has been pressed!")
 }
 ```

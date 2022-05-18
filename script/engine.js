@@ -1,4 +1,5 @@
 // Variable def
+
 const cdx = {}
 
 // scene variables
