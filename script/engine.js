@@ -59,7 +59,7 @@ cdx.object.create = function (name, sprite, x, y) {
   // loads the image into pixi, and it does its thing.
   PIXI.Loader.shared.reset(); 
   PIXI.Loader.shared.add(name, url);
-  PIXI.Loader.shared.load(cdx.image.load);
+  PIXI.Loader.shared.load(cdx.image.load());
   
 }
 
