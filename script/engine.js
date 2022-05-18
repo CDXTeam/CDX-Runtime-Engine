@@ -1,92 +1,115 @@
 // Variable def
-const cdxteam = {}
+const cdx = {}
 
 // scene variables
 
-function cvar(v, val) {
+cdx.setvar = function (variable, value) {
   runtimeScene.getVariables().get(v).setString(val);
 }
-function gvar(v) {
+cdx.getvar = function gvar(variable) {
   return runtimeScene.getVariables().get(v).getAsString();
 }
 
 // global variables
 
-function cgvar(v, val) {
+cdx.global.setvar = function cgvar(variable, value) {
   runtimeScene.getGame.getVariables().get(v).setString(val);
 }
-function ggvar(v) {
+cdx.global.getvar = function ggvar(variable) {
   return runtimeScene.getGame.getVariables().get(v).getAsString();
 }
 
 // object
-function addobj(name, sprite) {
-  var object = name;var anim = 0;var url = sprite
-  cdxteam.addimagetomem = function(loader, resources) { 
+
+cdx.object.create = function (name, sprite, x, y) {
+  // creates object instance
+  
+  var object = RuntimeScene.createObject(name)
+  object.setX(x)
+  object.setY(y)
+  
+  // by default
+  var object = name
+  var anim = 0
+  var url = sprite
+  
+  // loads new external function to loader
+  // image loader
+  
+  cdx.image.load = function (loader, resources) { 
+    
+    // load sprite into resources from object
     var mySprite= resources[name];
+    
+    //Get Game
     var game = runtimeScene.getGame();
+    
+    // get object
     var object_texture_image = runtimeScene.getObjects(object);
+    
+    // get object renderer.
     var object_texture_image_renderer = object_texture_image[anim].getRendererObject();
+    
+    // add image to object renderer.
     object_texture_image_renderer.texture = mySprite.texture;
-  };
+    
+  }
+  
+  // loads the image into pixi, and it does its thing.
   PIXI.Loader.shared.reset(); 
   PIXI.Loader.shared.add(name, url);
-  PIXI.Loader.shared.load(cdxteam.addimagetomem);
+  PIXI.Loader.shared.load(cdx.image.load);
+  
 }
 
-function crobj(obj, posx, posy) {
-  var object = RuntimeScene.createObject(obj)
-  object.setX(posx)
-  object.setY(posy)
-}
 
-function objpos(obj, posx, posy){
+cdx.object.position = function (obj, x, y){
   const object = RuntimeScene.getObjects(obj);
-  object.setX(posx);
-  object.setY(posy)
+  object.setX(x);
+  object.setY(y)
 }
 
 // user input (keycodes: http://gcctech.org/csc/javascript/javascript_keycodes.htm)
-function sinp(keycode) {
+cdx.input.keycode = function (keycode) {
   return gdjs.InputManager.isKeyPressed(keycode)
 }
 
 // p2p func
 const p2p = {}
 
-p2p.connectserv = function (host, port, path, key, ssl) {
+p2p.connect.server = function (host, port, path, key, ssl) {
   var chknum = isNaN(port)
   if (chknum == false && typeof ssl == "boolean") {
-    gdjs.evtTools.p2p.useCustomBrokerServer(host)
+    gdjs.evtTools.p2p.useCustomBrokerServer(host, port, path, key, ssl)
   }
 }
 
-p2p.connectcli = function (id) {
+p2p.client.connect = function (id) {
   gdjs.evtTools.p2p.connect(id)
 }
 
-p2p.getcurid = function () {
+p2p.client.getid = function () {
   return gdjs.evtTools.p2p.getCurrentId();
 }
 
-p2p.sendall = function (name, data) {
+p2p.client.sendall = function (name, data) {
   gdjs.evtTools.p2p.sendDataToAll(name, data)
 }
 
-p2p.sendtoid = function (id, name, data) {
+p2p.client.sendtoid = function (id, name, data) {
   gdjs.evtTools.p2p.sendDataTo(id, name, data)
 }
 
-p2p.id = function (id) {
+p2p.client.setid = function (id) {
   gdjs.evtTools.p2p.overrideId(id)
 }
 
 // these require loops.
 
-p2p.getdata = function (name) {
+p2p.data.get = function (name) {
   gdjs.evtTools.p2p.getEventData(name)
 }
 
-p2p.geterror = function (stvar) { 
-    runtimeScene.getVariables().get(stvar).setString(gdjs.evtTools.p2p.getLastError());
+p2p.data.geterror = function (variable) { 
+    runtimeScene.getVariables().get(variable).setString(gdjs.evtTools.p2p.getLastError());
 }
