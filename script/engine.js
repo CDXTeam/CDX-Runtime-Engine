@@ -21,9 +21,16 @@ function ggvar(v) {
 // object
 function addobj(name, sprite) {
   var object = name;var anim = 0;var url = sprite
-  runtimeScene.myCallback = function(loader, resources){ var mySprite= resources[name];var game = runtimeScene.getGame();var object_texture_image = runtimeScene.getObjects(object);var object_texture_image_renderer = object_texture_image[anim].getRendererObject();object_texture_image_renderer.texture = mySprite.texture;};PIXI.Loader.shared.reset(); 
-PIXI.Loader.shared.add(name, url);
-PIXI.Loader.shared.load(runtimeScene.myCallback);
+  runtimeScene.myCallback = function(loader, resources) { 
+    var mySprite= resources[name];
+    var game = runtimeScene.getGame();
+    var object_texture_image = runtimeScene.getObjects(object);
+    var object_texture_image_renderer = object_texture_image[anim].getRendererObject();
+    object_texture_image_renderer.texture = mySprite.texture;
+  };
+  PIXI.Loader.shared.reset(); 
+  PIXI.Loader.shared.add(name, url);
+  PIXI.Loader.shared.load(runtimeScene.myCallback);
 }
 
 function crobj(obj, posx, posy) {
