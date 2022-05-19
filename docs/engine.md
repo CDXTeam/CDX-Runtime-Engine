@@ -25,7 +25,7 @@
 - p2p.client.connect(id) | connects to specified p2p id.
 - p2p.client.getid() | gets client id and returns its value
 - p2p.client.sendall(name, data) | sends an event with the specified name and data to all connected clients.
-- p2p.cliend.sendtoid(id, name, data) | sends an event to the specified id with the specified name and data.
+- p2p.client.sendtoid(id, name, data) | sends an event to the specified id with the specified name and data.
 - p2p.client.setid(id) | Sets P2P client id, call this before `p2p.connect.server()`
 
 ### data:
