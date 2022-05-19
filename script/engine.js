@@ -1,16 +1,17 @@
 // Variable def
 
 const cdx = {}
+cdx.local = {}
 cdx.global = {}
 cdx.input = {}
 cdx.object = {}
 
 // scene variables
 
-cdx.setvar = function (variable, value) {
+cdx.local.setvar = function (variable, value) {
   runtimeScene.getVariables().get(v).setString(val);
 }
-cdx.getvar = function gvar(variable) {
+cdx.local.getvar = function gvar(variable) {
   return runtimeScene.getVariables().get(v).getAsString();
 }
 
@@ -67,7 +68,7 @@ cdx.object.create = function (name, sprite, x, y) {
 }
 
 
-cdx.object.position = function (obj, x, y){
+cdx.object.move = function (obj, x, y){
   const object = RuntimeScene.getObjects(obj);
   object.setX(x);
   object.setY(y)
