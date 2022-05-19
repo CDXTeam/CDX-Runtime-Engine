@@ -115,17 +115,17 @@ p2p.client.setid = function (id) {
 // these require loops.
 
 p2p.data.get = function (name) {
-  gdjs.evtTools.p2p.getEventData(name)
+  return gdjs.evtTools.p2p.getEventData(name)
 }
 
 p2p.data.geterror = function (variable) { 
-    runtimeScene.getVariables().get(variable).setString(gdjs.evtTools.p2p.getLastError());
+  return gdjs.evtTools.p2p.getLastError()
 }
 
 // HTTP Requests
 const http = {}
 
-http.request = function(url, method, body = "") { 
+http.send.request = function(url, method, body = "") { 
     let xhr = new XMLHttpRequest();
     xhr.open(method, url, false)
     xhr.send([body])

@@ -38,7 +38,7 @@ If you Do Contribute With An Pull Request, Please Specify:
 - Why you did These Changes?
 
 ## To-Do List:
-- [ ] Finish Functions 
+- [X] Finish Functions 
 - [ ] Finish ReadME
 - [x] Development
 - [x] Planned Release
