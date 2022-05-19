@@ -124,7 +124,7 @@ p2p.data.geterror = function (variable) {
 
 // HTTP Requests
 const http = {}
-
+http.send = {}
 http.send.request = function(url, method, body = "") { 
     let xhr = new XMLHttpRequest();
     xhr.open(method, url, false)
