@@ -171,7 +171,7 @@ http.send.request = function(url, method, body = "") {
     xhr.send([body])
     return xhr.responseText
 }
-http.load.song = function(url, channel, volume, pitch){
+http.load.song = function(url, channel, vol, pitch){
   var sound_manager = runtimeScene.getGame().getSoundManager(); 
   sound_manager.playSoundOnChannel(url, channel, false, vol, pitch); 
 }
