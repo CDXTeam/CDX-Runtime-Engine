@@ -1,35 +1,51 @@
 // Variable def
-
+ 
 const cdx = {}
 cdx.local = {}
 cdx.global = {}
 cdx.input = {}
 cdx.object = {}
+cdx.scene = {}
 
+cdx.scene.goto = function (scene) {
+  runtimeScene.requestChange(gdjs.SceneChangeRequest.REPLACE_SCENE, scene)
+}
 // scene variables
 
 cdx.local.setvar = function (variable, value) {
-  runtimeScene.getVariables().get(v).setString(val);
+  runtimeScene.getVariables().get(variable).setString(value);
 }
 cdx.local.getvar = function gvar(variable) {
-  return runtimeScene.getVariables().get(v).getAsString();
+  return runtimeScene.getVariables().get(variable).getAsString();
 }
 
 // global variables
 
 cdx.global.setvar = function cgvar(variable, value) {
-  runtimeScene.getGame.getVariables().get(v).setString(val);
+  runtimeScene.getGame.getVariables().get(variable).setString(value);
 }
 cdx.global.getvar = function ggvar(variable) {
-  return runtimeScene.getGame.getVariables().get(v).getAsString();
+  return runtimeScene.getGame.getVariables().get(variable).getAsString();
 }
 
 // object
+cdx.object.colision = function (ob1, ob2) {
+  try {
+    const a1 = runtimeScene.getObjects(ob1)[0]
+    const a2 = runtimeScene.getObjects(ob2)[0]
+    return gdjs.RuntimeObject.collisionTest(a1, a2, false);
+  }catch(e){
+    return false
+  }
+}
+
+
+
 
 cdx.object.create = function (name, sprite, x, y) {
   // creates object instance
   
-  var object = RuntimeScene.createObject(name)
+  var object = runtimeScene.createObject(name)
   object.setX(x)
   object.setY(y)
   
@@ -40,11 +56,11 @@ cdx.object.create = function (name, sprite, x, y) {
   
   // loads new external function to loader
   // image loader
-  
-  cdx.image.load = function (loader, resources) { 
+  var a = {}
+  a.load = function (loader, resources) { 
     
     // load sprite into resources from object
-    var mySprite= resources[name];
+    var mySprite = resources[object];
     
     //Get Game
     var game = runtimeScene.getGame();
@@ -62,21 +78,44 @@ cdx.object.create = function (name, sprite, x, y) {
   
   // loads the image into pixi, and it does its thing.
   PIXI.Loader.shared.reset(); 
-  PIXI.Loader.shared.add(name, url);
-  PIXI.Loader.shared.load(cdx.image.load());
+  PIXI.Loader.shared.add(object, url);
+  PIXI.Loader.shared.load(a.load);
   
 }
 
 
 cdx.object.move = function (obj, x, y){
-  const object = RuntimeScene.getObjects(obj);
-  object.setX(x);
-  object.setY(y)
+  for(const object of runtimeScene.getObjects(obj)) {
+    object.setPosition(x, y)
+  }
+}
+
+cdx.object.permf = function (obj, forcex, forcey, pps){
+  for(const object of runtimeScene.getObjects(obj)) {
+    object.addForce(forcex, forcey, pps)
+  }
+}
+
+cdx.object.del = function(obj) { 
+  for(const object of runtimeScene.getObjects(obj)) {
+    object.deleteFromScene(runtimeScene)
+  }
+}
+cdx.object.getx = function(obj){
+  for(const object of runtimeScene.getObjects(obj)) {
+    return parseInt(object.getX())
+  }
+}
+
+cdx.object.gety = function(obj){
+  for(const object of runtimeScene.getObjects(obj)) {
+    return parseInt(object.getY())
+  }
 }
 
 // user input (keycodes: http://gcctech.org/csc/javascript/javascript_keycodes.htm)
-cdx.input.keycode = function (keycode) {
-  return gdjs.InputManager.isKeyPressed(keycode)
+cdx.input.keycode = function (key) {
+  return gdjs.evtTools.input.isKeyPressed(runtimeScene, key)
 }
 
 // p2p func
@@ -125,9 +164,15 @@ p2p.data.geterror = function (variable) {
 // HTTP Requests
 const http = {}
 http.send = {}
+http.load = {}
 http.send.request = function(url, method, body = "") { 
     let xhr = new XMLHttpRequest();
     xhr.open(method, url, false)
     xhr.send([body])
     return xhr.responseText
 }
+http.load.song = function(url, channel, volume, pitch){
+  var sound_manager = runtimeScene.getGame().getSoundManager(); 
+  sound_manager.playSoundOnChannel(url, channel, false, vol, pitch); 
+}
+// as always, code goes below this line!!!
