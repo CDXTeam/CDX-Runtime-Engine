@@ -7,7 +7,12 @@ cdx.input = {}
 cdx.object = {}
 cdx.scene = {}
 
-cdx.scene.goto = function (scene) {
+// network shit
+cdx.network.p2p = {}
+cdx.network.http = {}
+cdx.network.ws = {}
+
+cdx.scene.goto = function (scene) { 
   runtimeScene.requestChange(gdjs.SceneChangeRequest.REPLACE_SCENE, scene)
 }
 // scene variables
@@ -125,62 +130,95 @@ cdx.input.keycode = function (key) {
   return gdjs.evtTools.input.isKeyPressed(runtimeScene, key)
 }
 
+// Mouse Buttons Are: Left, Right, Middle
+cdx.input.mouse = function (mousebutton) {
+  return gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, mousebutton)
+}
 // p2p func
-const p2p = {}
 
-p2p.client = {}
-p2p.data = {}
-p2p.connect = {}
-p2p.connect.server = function (host, port, path, key, ssl) {
+cdx.network.p2p.server = {}
+cdx.network.p2p.client = {}
+cdx.network.p2p.data = {}
+
+cdx.network.p2p.server.connect = function (host, port, path, key, ssl) {
   var chknum = isNaN(port)
   if (chknum == false && typeof ssl == "boolean") {
     gdjs.evtTools.p2p.useCustomBrokerServer(host, port, path, key, ssl)
   }
 }
 
-p2p.client.connect = function (id) {
+cdx.network.p2p.client.connect = function (id) {
   gdjs.evtTools.p2p.connect(id)
 }
 
-p2p.client.getid = function () {
+cdx.network.p2p.client.getid = function () {
   return gdjs.evtTools.p2p.getCurrentId();
 }
 
-p2p.client.sendall = function (name, data) {
+cdx.network.p2p.client.sendall = function (name, data) {
   gdjs.evtTools.p2p.sendDataToAll(name, data)
 }
 
-p2p.client.sendtoid = function (id, name, data) {
+cdx.network.p2p.client.sendtoid = function (id, name, data) {
   gdjs.evtTools.p2p.sendDataTo(id, name, data)
 }
 
-p2p.client.setid = function (id) {
+cdx.network.p2p.client.setid = function (id) {
   gdjs.evtTools.p2p.overrideId(id)
 }
 
 // these require loops.
 
-p2p.data.get = function (name) {
+cdx.network.p2p.data.get = function (name) {
   return gdjs.evtTools.p2p.getEventData(name)
 }
 
-p2p.data.geterror = function (variable) { 
+cdx.network.p2p.data.geterror = function (variable) { 
   return gdjs.evtTools.p2p.getLastError()
 }
 
 // HTTP Requests
-const http = {}
-http.send = {}
-http.load = {}
-http.send.request = function(url, method, body = "") { 
+cdx.network.http.load = {}
+cdx.network.http.send = {}
+cdx.network.http.send.request = function(url, method, body = "") { 
     let xhr = new XMLHttpRequest();
     xhr.open(method, url, false)
     xhr.send([body])
     return xhr.responseText
 }
-http.load.song = function(url, channel, vol, pitch){
+cdx.network.http.load.song = function(url, channel, vol, pitch){
   var sound_manager = runtimeScene.getGame().getSoundManager(); 
   sound_manager.playSoundOnChannel(url, channel, false, vol, pitch); 
 }
+
+// Websockets
+cdx.network.ws.server = {}
+cdx.network.ws.client = {}
+cdx.network.ws.server.connect = function (url, method = "") {
+  window.socket = new WebSocket(url, method);
+}
+
+cdx.network.ws.client.onopen = function (texttodosomethin) { 
+  Function(texttodosomethin)
+  return
+}
+
+cdx.network.ws.client.onmessage = function (text) {
+  Funtion(text)
+  return
+}
+
+cdx.network.ws.client.storemessagevariable = function (variable) {
+  return window.socket.onmessage = function (event) {
+    return event.data
+  }
+} 
+
+cdx.network.ws.client.send = function (message) {
+  window.socket.send(message)
+}
+
+cdx.network.ws.server.close = function () {
+  window.socket.close()
+}
 // as always, code goes below this line!!!
-console.log(cdx.object.touching("Preview"))
