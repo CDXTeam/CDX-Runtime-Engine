@@ -39,7 +39,14 @@ cdx.object.colision = function (ob1, ob2) {
   }
 }
 
-
+cdx.object.touching = function (obj) {
+  try {
+    const obja = runtimeScene.getObjects(obj)[0]
+    return obja.cursorOnObject(runtimeScene)
+  }catch(e){
+    return e
+  }
+}
 
 
 cdx.object.create = function (name, sprite, x, y) {
@@ -176,3 +183,4 @@ http.load.song = function(url, channel, vol, pitch){
   sound_manager.playSoundOnChannel(url, channel, false, vol, pitch); 
 }
 // as always, code goes below this line!!!
+console.log(cdx.object.touching("Preview"))
