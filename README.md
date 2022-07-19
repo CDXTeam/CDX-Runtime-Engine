@@ -38,9 +38,10 @@ If you Do Contribute With An Pull Request, Please Specify:
 - Why you did These Changes?
 
 ## To-Do List:
-- [X] Finish Functions 
+- [ ] Finish Functions 
 - [ ] Finish ReadME
 - [x] Development
 - [x] Planned Release
 
-
+## Documentation:
+Coming Soon or smth idk
