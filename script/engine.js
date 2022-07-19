@@ -1,50 +1,74 @@
 // Variable def
  
-const cdx = {}
-cdx.local = {}
-cdx.global = {}
-cdx.input = {}
-cdx.object = {}
-cdx.scene = {}
+const scene = {}
+const global = {}
+const input = {}
+const object = {}
 
-// network shit
-cdx.network.p2p = {}
-cdx.network.http = {}
-cdx.network.ws = {}
-
-cdx.scene.goto = function (scene) { 
+/** 
+ * Changes Scene
+ * @param {string} scene - The title of the scene.
+*/
+scene.goto = function (scene) { 
+  /** @suppress {missingProperties} */
   runtimeScene.requestChange(gdjs.SceneChangeRequest.REPLACE_SCENE, scene)
 }
-// scene variables
 
-cdx.local.setvar = function (variable, value) {
+/**
+ * Sets Scene Variable Value to what is defined in second param
+ * @param {string} variable - The name of the Variable.
+ * @param {string} value - The Data The Variable Should Contain
+*/
+scene.setvar = function (variable, value) {
   runtimeScene.getVariables().get(variable).setString(value);
 }
-cdx.local.getvar = function gvar(variable) {
+
+/**
+ * Returns Scene Variable Value
+ * @param {string} variable - The name of the Variable.
+*/
+scene.getvar = function gvar(variable) {
   return runtimeScene.getVariables().get(variable).getAsString();
 }
 
-// global variables
-
-cdx.global.setvar = function cgvar(variable, value) {
+/**
+ * Sets Global Variable Value to what is defined in second param
+ * @param {string} variable - The name of the Variable.
+ * @param {string} value - The Data The Variable Should Contain
+*/
+global.setvar = function cgvar(variable, value) {
   runtimeScene.getGame.getVariables().get(variable).setString(value);
 }
-cdx.global.getvar = function ggvar(variable) {
+
+/**
+ * Returns Global Variable Value
+ * @param {string} variable - The name of the Variable.
+*/
+global.getvar = function ggvar(variable) {
   return runtimeScene.getGame.getVariables().get(variable).getAsString();
 }
 
-// object
-cdx.object.colision = function (ob1, ob2) {
+/**
+ * Checks For Colision Between 2 Objects
+ * @param {string} object - The name of the first object.
+ * @param {string} object2 - The name of the second object.
+ * @return {boolean} true if objects are coliding, false if not.
+*/
+object.colision = function (object, object2) {
   try {
-    const a1 = runtimeScene.getObjects(ob1)[0]
-    const a2 = runtimeScene.getObjects(ob2)[0]
+    const a1 = runtimeScene.getObjects(object)[0]
+    const a2 = runtimeScene.getObjects(object2)[0]
     return gdjs.RuntimeObject.collisionTest(a1, a2, false);
   }catch(e){
     return false
   }
 }
-
-cdx.object.touching = function (obj) {
+/**
+ * Checks if Mouse / Touch is touching object.
+ * @param {string} object - The name of the object.
+ * @return {boolean} true if mouse is touching object, false if not.
+*/
+object.touching = function (obj) {
   try {
     const obja = runtimeScene.getObjects(obj)[0]
     return obja.cursorOnObject(runtimeScene)
@@ -53,8 +77,14 @@ cdx.object.touching = function (obj) {
   }
 }
 
-
-cdx.object.create = function (name, sprite, x, y) {
+/**
+ * Creates a Object, Do note that the object in question (sprite) has to exist.
+ * @param {string} name - The name of the object.
+ * @param {string} sprite - The url (or data uri) of the sprite image.
+ * @param {number} x - x position of object.
+ * @param {number} y - y position of object.
+*/
+object.create = function (name, sprite, x, y) {
   // creates object instance
   
   var object = runtimeScene.createObject(name)
@@ -95,130 +125,242 @@ cdx.object.create = function (name, sprite, x, y) {
   
 }
 
-
-cdx.object.move = function (obj, x, y){
+/**
+ * Moves a Object, object has to exist in order to move.
+ * @param {string} obj - The name of the object.
+ * @param {number} x - x position where the object should be set.
+ * @param {number} y - y position where the object should be set.
+*/
+object.move = function (obj, x, y){
   for(const object of runtimeScene.getObjects(obj)) {
     object.setPosition(x, y)
   }
 }
-
-cdx.object.permf = function (obj, forcex, forcey, pps){
+/**
+ * Adds Permanent Force to a Object.
+ * @param {string} obj - The name of the object.
+ * @param {number} forcex - how much force should be applied to the object in the x Direction
+ * @param {number} forcey - how much force should be applied to the object in the y Direction
+ * @param {number} pps - how fast a object should move in pixels per second
+*/
+object.permf = function (obj, forcex, forcey, pps){
   for(const object of runtimeScene.getObjects(obj)) {
     object.addForce(forcex, forcey, pps)
   }
 }
 
-cdx.object.del = function(obj) { 
+/**
+ * Deletes Object (none of this runtimescene shiz arthuro555)
+ * @param {string} obj - The name of the object.
+*/
+object.del = function(obj) { 
   for(const object of runtimeScene.getObjects(obj)) {
     object.deleteFromScene(runtimeScene)
   }
 }
-cdx.object.getx = function(obj){
+/**
+ * Gets Object X Position
+ * @param {string} obj - The name of the object.
+ * @return {number} X Position of Object
+*/
+object.getx = function(obj){
   for(const object of runtimeScene.getObjects(obj)) {
     return parseInt(object.getX())
   }
 }
-
-cdx.object.gety = function(obj){
+/**
+ * Gets Object Y Position
+ * @param {string} obj - The name of the object.
+ * @return {number} Y Position of Object
+*/
+object.gety = function(obj){
   for(const object of runtimeScene.getObjects(obj)) {
     return parseInt(object.getY())
   }
 }
 
-// user input (keycodes: http://gcctech.org/csc/javascript/javascript_keycodes.htm)
-cdx.input.keycode = function (key) {
+/**
+ * Checks if Key (defined in keycodes) Is Pressed
+ * @param {string} key - The Number of the Key (yes it has to be a string.)
+ * @return {boolean} true if is pressed, false if not pressed
+*/
+input.keycode = function (key) {
   return gdjs.evtTools.input.isKeyPressed(runtimeScene, key)
 }
-
-// Mouse Buttons Are: Left, Right, Middle
-cdx.input.mouse = function (mousebutton) {
+/**
+ * Checks if Mouse Button is Pressed, The Buttons Avalible Are: Left, Right, Middle, Left can also be used for is touchscreen pressed
+ * @param {string} mousebutton - The Name of the Key
+ * @return {boolean} true if is pressed, false if not pressed
+*/
+input.mouse = function (mousebutton) {
   return gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, mousebutton)
 }
-// p2p func
 
-cdx.network.p2p.server = {}
-cdx.network.p2p.client = {}
-cdx.network.p2p.data = {}
+const network = {}
+p2p = {}
+p2p.server = {}
+p2p.client = {}
+p2p.data = {}
 
-cdx.network.p2p.server.connect = function (host, port, path, key, ssl) {
+/**
+ * Connects To PeerJS Server.
+ * @param {string} host - The Host URL of The Server
+ * @param {number} port - Port of Server (Usually 9000)
+ * @param {string} path - Path for PeerJS Connections
+ * @param {string} key - Key for PeerJS Server
+ * @param {boolean} ssl - Is SSL Enabled?
+*/
+p2p.server.connect = function (host, port, path, key, ssl) {
   var chknum = isNaN(port)
   if (chknum == false && typeof ssl == "boolean") {
     gdjs.evtTools.p2p.useCustomBrokerServer(host, port, path, key, ssl)
   }
 }
 
-cdx.network.p2p.client.connect = function (id) {
+/**
+ * Connects To P2P Client.
+ * @param {string} id - The Client ID
+*/
+p2p.client.connect = function (id) {
   gdjs.evtTools.p2p.connect(id)
 }
 
-cdx.network.p2p.client.getid = function () {
+/**
+ * It just returns the P2P ID
+ * @return {string} P2P ID
+*/
+p2p.client.getid = function () {
   return gdjs.evtTools.p2p.getCurrentId();
 }
 
-cdx.network.p2p.client.sendall = function (name, data) {
+/**
+ * Sends Event To All Connected Clients.
+ * @param {string} name - Name Of Event
+ * @param {string} data - Data that Event contains (optional)
+*/
+p2p.client.sendall = function (name, data = "") {
   gdjs.evtTools.p2p.sendDataToAll(name, data)
 }
 
-cdx.network.p2p.client.sendtoid = function (id, name, data) {
+/**
+ * Sends Event To Specified Client
+ * @param {string} id - Client ID That Should Recieve The Event.
+ * @param {string} name - Name Of Event
+ * @param {string} data - Data that Event contains (optional)
+*/
+p2p.client.sendtoid = function (id, name, data = "") {
   gdjs.evtTools.p2p.sendDataTo(id, name, data)
 }
 
-cdx.network.p2p.client.setid = function (id) {
+/**
+ * Sets P2P Client ID, do this before connecting into any server.
+ * @param {string} id - The Client ID That should be set.
+*/
+p2p.client.setid = function (id) {
   gdjs.evtTools.p2p.overrideId(id)
 }
 
 // these require loops.
-
-cdx.network.p2p.data.get = function (name) {
+/**
+ * Returns Data From Event
+ * @param {string} name - Event Name
+ * @return {string} Event Data
+*/
+p2p.data.get = function (name) {
   return gdjs.evtTools.p2p.getEventData(name)
 }
 
-cdx.network.p2p.data.geterror = function (variable) { 
+/**
+ * Returns Last Error
+ * @return {string} Last Error Data
+*/
+p2p.data.geterror = function () { 
   return gdjs.evtTools.p2p.getLastError()
 }
 
 // HTTP Requests
-cdx.network.http.load = {}
-cdx.network.http.send = {}
-cdx.network.http.send.request = function(url, method, body = "") { 
+http = {}
+http.load = {}
+http.send = {}
+
+/**
+ * Sends HTTP (or HTTPS) Request To Server / API
+ * @param {string} url - URL of Server / API
+ * @param {string} method - Method for Request (ex. GET, POST), optional
+ * @param {string} body - http body (optional)
+ * @return {string} Response
+*/
+http.send.request = function(url, method = "GET", body = "") { 
     let xhr = new XMLHttpRequest();
     xhr.open(method, url, false)
     xhr.send([body])
     return xhr.responseText
 }
-cdx.network.http.load.song = function(url, channel, vol, pitch){
+
+/**
+ * Does a Beatshape and loads a song from a url
+ * @param {string} url - URL of song file (song.mp3 for example)
+ * @param {number} channel - Channel Song Should Be Played on (optional, plays on channel 0)
+ * @param {number} vol - Volume Song should be played on (optional, default 100)
+ * @param {number} vol - Pitch (or speed) Song should be played on (optional, default 100)
+*/
+http.load.song = function(url, channel = 0, vol = 100, pitch = 1){
   var sound_manager = runtimeScene.getGame().getSoundManager(); 
   sound_manager.playSoundOnChannel(url, channel, false, vol, pitch); 
 }
 
 // Websockets
-cdx.network.ws.server = {}
-cdx.network.ws.client = {}
-cdx.network.ws.server.connect = function (url, method = "") {
+ws = {}
+ws.server = {}
+ws.client = {}
+
+/**
+ * Connects to Websocket Server
+ * @param {string} url - Websocket Server URL (must contain either ws:// or wss://)
+ * @param {string} method - Websocket Method (i am as clueless as you are.)
+*/
+ws.server.connect = function (url, method = "") {
   window.socket = new WebSocket(url, method);
 }
 
-cdx.network.ws.client.onopen = function (texttodosomethin) { 
-  Function(texttodosomethin)
+/**
+ * Does a Function or JS Code When You Connect to The Server
+ * @param {string} text - thing to do
+*/
+ws.client.onopen = function (text) { 
+  Function(text)
   return
 }
 
-cdx.network.ws.client.onmessage = function (text) {
+/**
+ * Does a Function or JS Code When a message is broadcasted.
+ * @param {string} text - thing to do
+*/
+ws.client.onmessage = function (text) {
   Funtion(text)
   return
 }
 
-cdx.network.ws.client.storemessagevariable = function (variable) {
+/**
+ * returns message when a message is broadcasted
+ * @return {string} Message Data
+*/
+ws.client.getmessage = function () {
   return window.socket.onmessage = function (event) {
     return event.data
   }
 } 
-
-cdx.network.ws.client.send = function (message) {
+/**
+ * Sends Message
+ * @param {string} message - message to send
+*/
+ws.client.send = function (message) {
   window.socket.send(message)
 }
-
-cdx.network.ws.server.close = function () {
+/**
+ * Closes Websocket Connection.
+*/
+ws.server.close = function () {
   window.socket.close()
 }
 // as always, code goes below this line!!!
