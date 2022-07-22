@@ -14,7 +14,10 @@
 
 ## How To Use:
 
-Create An New Scene And Copy [This Script](/script/min.engine.js), And Then Either Look At The [Documentation](/docs/engine.md) or Follow These Examples:
+There Are 2 Ways on how to use this.
+
+1. Embed Into Javascript Code Block (RECOMMENDED)
+![example](https://cdn.discordapp.com/attachments/948281490788192279/999859264074043522/example1.mp4)
 
 Example: Add And Create Object Instance
 ```javascript
