@@ -4,6 +4,8 @@ const scene = {}
 const global = {}
 const input = {}
 const object = {}
+const sprite = {}
+const text = {}
 
 /** 
  * Changes Scene
@@ -30,16 +32,23 @@ scene.setvar = function (variable, value) {
  * Returns Scene Variable Value
  * @param {string} variable - The name of the Variable.
 */
-scene.getvar = function gvar(variable) {
+scene.getvar = function (variable) {
   return runtimeScene.getVariables().get(variable).getAsString();
 }
 
+scene.once = function () {
+  window.once = true
+}
+
+scene.clearonce = function () {
+  window.once = false
+}
 /**
  * Sets Global Variable Value to what is defined in second param
  * @param {string} variable - The name of the Variable.
  * @param {string} value - The Data The Variable Should Contain
 */
-global.setvar = function cgvar(variable, value) {
+global.setvar = function (variable, value) {
   runtimeScene.getGame.getVariables().get(variable).setString(value);
 }
 
@@ -47,7 +56,7 @@ global.setvar = function cgvar(variable, value) {
  * Returns Global Variable Value
  * @param {string} variable - The name of the Variable.
 */
-global.getvar = function ggvar(variable) {
+global.getvar = function (variable) {
   return runtimeScene.getGame.getVariables().get(variable).getAsString();
 }
 
@@ -87,7 +96,7 @@ object.touching = function (obj) {
  * @param {number} x - x position of object.
  * @param {number} y - y position of object.
 */
-object.create = function (name, sprite, x, y) {
+sprite.create = function (name, sprite, x, y) {
   // creates object instance
   
   var object = runtimeScene.createObject(name)
@@ -135,9 +144,8 @@ object.create = function (name, sprite, x, y) {
  * @param {number} y - y position where the object should be set.
 */
 object.move = function (obj, x, y){
-  for(const object of runtimeScene.getObjects(obj)) {
-    object.setPosition(x, y)
-  }
+  const object = runtimeScene.getObjects(obj)[0]
+  object.setPosition(x, y)
 }
 /**
  * Adds Permanent Force to a Object.
@@ -147,9 +155,8 @@ object.move = function (obj, x, y){
  * @param {number} pps - how fast a object should move in pixels per second
 */
 object.permf = function (obj, forcex, forcey, pps){
-  for(const object of runtimeScene.getObjects(obj)) {
-    object.addForce(forcex, forcey, pps)
-  }
+  const object = runtimeScene.getObjects(obj)[0]
+  object.addForce(forcex, forcey, pps)
 }
 
 /**
@@ -157,9 +164,8 @@ object.permf = function (obj, forcex, forcey, pps){
  * @param {string} obj - The name of the object.
 */
 object.del = function(obj) { 
-  for(const object of runtimeScene.getObjects(obj)) {
-    object.deleteFromScene(runtimeScene)
-  }
+  const object = runtimeScene.getObjects(obj)[0]
+  object.deleteFromScene(runtimeScene)
 }
 /**
  * Gets Object X Position
@@ -167,19 +173,43 @@ object.del = function(obj) {
  * @return {number} X Position of Object
 */
 object.getx = function(obj){
-  for(const object of runtimeScene.getObjects(obj)) {
-    return parseInt(object.getX())
-  }
+  const object = runtimeScene.getObjects(obj)[0]
+  return parseInt(object.getX())
 }
 /**
  * Gets Object Y Position
  * @param {string} obj - The name of the object.
  * @return {number} Y Position of Object
 */
+
 object.gety = function(obj){
-  for(const object of runtimeScene.getObjects(obj)) {
-    return parseInt(object.getY())
-  }
+  const object = runtimeScene.getObjects(obj)[0]
+  return parseInt(object.getY())
+}
+
+text.setText = function (obj, text) {
+  const object = runtimeScene.getObjects(obj)[0]
+  object.setString(text)
+}
+
+text.getText = function (obj) {
+  const object = runtimeScene.getObjects(obj)[0]
+  return object.getString()
+}
+
+object.setOpacity = function (obj, opacity) {
+  const object = runtimeScene.getObjects(obj)[0]
+  object.setOpacity(opacity)
+}
+
+object.getOpacity = function (obj) {
+  const object = runtimeScene.getObjects(obj)[0]
+  object.getOpacity(opacity)
+}
+
+object.setTint = function (obj, r, g, b) {
+  const object = runtimeScene.getObjects(obj)[0]
+  object.setColor(toString(r) + ";" + toString(g) + ";" + toString(b))
 }
 
 /**
@@ -364,5 +394,37 @@ ws.client.send = function (message) {
 */
 ws.server.close = function () {
   window.socket.close()
+}
+
+var tween = {}
+tween.quad = {}
+tween.sine = {}
+tween.bounce = {}
+
+// quad tweens
+tween.quad.easeinout = function (start, end, time) {
+  gdjs.evtTools.tween.ease("easeInOutQuad", start, end, time)
+}
+tween.quad.easein = function (start, end, time) {
+  gdjs.evtTools.tween.ease("easeInQuad", start, end, time)
+}
+tween.quad.easeout = function (start, end, time) {
+  gdjs.evtTools.tween.ease("easeOutQuad", start, end, time)
+}
+
+// sine tweens
+tween.sine.easeinout = function (start, end, time) {
+  gdjs.evtTools.tween.ease("easeInOutSine", start, end, time)
+}
+tween.sine.easein = function (start, end, time) {
+  gdjs.evtTools.tween.ease("easeInSine", start, end, time)
+}
+tween.sine.easeout = function (start, end, time) {
+  gdjs.evtTools.tween.ease("easeOutSine", start, end, time)
+}
+
+// tween bounce
+tween.bounce.bounce = function (start, end, time) {
+  gdjs.evtTools.tween.ease("bounce", start, end, time)
 }
 // as always, code goes below this line!!!

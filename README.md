@@ -59,4 +59,4 @@ If you Do Contribute With An Pull Request, Please Specify:
 - [x] Planned Release
 
 ## Documentation:
-Coming Soon or smth idk
+yea here are the [docs](docs/docs.md)
