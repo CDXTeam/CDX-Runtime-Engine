@@ -20,7 +20,9 @@ There Are 2 Ways on how to use this.
 
 https://user-images.githubusercontent.com/60990459/180346971-d2db19cb-085b-48d0-a7e1-8499a7527ae7.mp4
 
-2. Use the Auto-Embed Feature Once Game Starts. [(Not Recommended)](docs/unsafe.md)
+2. Use the Auto-Embed Feature Once Game Starts. [(NOT RECOMMENDED)](docs/unsafe.md)
+
+https://user-images.githubusercontent.com/60990459/180349015-4d65a177-d1e6-4101-b255-8d4c5109948d.mp4
 
 
 Example: Add And Create Object Instance
