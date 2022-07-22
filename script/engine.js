@@ -14,6 +14,9 @@ scene.goto = function (scene) {
   runtimeScene.requestChange(gdjs.SceneChangeRequest.REPLACE_SCENE, scene)
 }
 
+scene.changecolor = function (r, g, b){
+  runtimeScene.setBackgroundColor(r, g, b);
+}
 /**
  * Sets Scene Variable Value to what is defined in second param
  * @param {string} variable - The name of the Variable.
@@ -196,8 +199,7 @@ input.mouse = function (mousebutton) {
   return gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, mousebutton)
 }
 
-const network = {}
-p2p = {}
+var p2p = {}
 p2p.server = {}
 p2p.client = {}
 p2p.data = {}
@@ -279,7 +281,7 @@ p2p.data.geterror = function () {
 }
 
 // HTTP Requests
-http = {}
+var http = {}
 http.load = {}
 http.send = {}
 
@@ -310,7 +312,7 @@ http.load.song = function(url, channel = 0, vol = 100, pitch = 1){
 }
 
 // Websockets
-ws = {}
+var ws = {}
 ws.server = {}
 ws.client = {}
 

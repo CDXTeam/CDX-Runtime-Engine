@@ -8,6 +8,7 @@
 
 ## Table Of Contents:
 - How To Use
+- Examples
 - Contributing
 - To-Do List
 - Documentation
@@ -25,19 +26,24 @@ https://user-images.githubusercontent.com/60990459/180346971-d2db19cb-085b-48d0-
 https://user-images.githubusercontent.com/60990459/180349015-4d65a177-d1e6-4101-b255-8d4c5109948d.mp4
 
 
+## Examples:
+
 Example: Add And Create Object Instance
 ```javascript
 var x = 100
 var y = 200
-cdx.object.create("foo", "./bar.png", x, y)
+object.create("foo", "./bar.png", x, y)
 ```
 On Input Console Log
 ```javascript
-var x_pressed = cdx.input.keycode("88")
+var x_pressed = input.keycode("88")
 if (x_pressed == true) {
   console.log("X has been pressed!")
 }
 ```
+
+Example: [GP Multiplayer-Like Game](example/gp/)
+
 
 ## Contributing: 
 Contributing is highly recommended as it helps the development of the engine.

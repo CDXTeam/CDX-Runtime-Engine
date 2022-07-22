@@ -1,0 +1,727 @@
+{
+  "firstLayout": "",
+  "gdVersion": {
+    "build": 99,
+    "major": 4,
+    "minor": 0,
+    "revision": 0
+  },
+  "properties": {
+    "adaptGameResolutionAtRuntime": true,
+    "folderProject": false,
+    "orientation": "landscape",
+    "packageName": "com.example.gamename",
+    "pixelsRounding": true,
+    "projectUuid": "bfc546bb-5d91-4752-bc79-7679688d06da",
+    "scaleMode": "nearest",
+    "sizeOnStartupMode": "",
+    "templateSlug": "",
+    "useExternalSourceFiles": false,
+    "version": "1.0.0",
+    "name": "GP Asteroid Demo",
+    "description": "This Game was Specifically Made For The CDX Team \"Hello, New World!\" Event That Happened in May 31st, 2022.\n\nFeel Free To Use This Demo In Any Way You'd like!",
+    "author": "",
+    "windowWidth": 128,
+    "windowHeight": 80,
+    "latestCompilationDirectory": "",
+    "maxFPS": 60,
+    "minFPS": 20,
+    "verticalSync": false,
+    "platformSpecificAssets": {},
+    "loadingScreen": {
+      "backgroundColor": 0,
+      "backgroundFadeInDuration": 0.2,
+      "backgroundImageResourceName": "",
+      "gdevelopLogoStyle": "light",
+      "logoAndProgressFadeInDuration": 0.2,
+      "logoAndProgressLogoFadeInDelay": 0.2,
+      "minDuration": 1.5,
+      "progressBarColor": 16777215,
+      "progressBarHeight": 20,
+      "progressBarMaxWidth": 200,
+      "progressBarMinWidth": 40,
+      "progressBarWidthPercent": 30,
+      "showGDevelopSplash": true,
+      "showProgressBar": true
+    },
+    "authorIds": [],
+    "categories": [],
+    "playableDevices": [],
+    "extensionProperties": [],
+    "platforms": [
+      {
+        "name": "GDevelop JS platform"
+      }
+    ],
+    "currentPlatform": "GDevelop JS platform"
+  },
+  "resources": {
+    "resources": [],
+    "resourceFolders": []
+  },
+  "objects": [],
+  "objectsGroups": [],
+  "variables": [],
+  "layouts": [
+    {
+      "b": 209,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "main",
+      "name": "main",
+      "oglFOV": 90,
+      "oglZFar": 500,
+      "oglZNear": 1,
+      "r": 209,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "title": "",
+      "v": 209,
+      "uiSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.3199999999999996,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "enemy",
+          "persistentUuid": "2df37446-cd21-49ff-8998-18900cf95ed8",
+          "width": 0,
+          "x": 6,
+          "y": -381,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "",
+          "name": "hello",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "enemy",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetSize"
+              },
+              "parameters": [
+                "hello",
+                "24",
+                "20"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetSize"
+              },
+              "parameters": [
+                "enemy",
+                "13",
+                "12"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetGameResolutionSize"
+              },
+              "parameters": [
+                "",
+                "128",
+                "80"
+              ]
+            }
+          ]
+        },
+        {
+          "folded": true,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetWindowSize"
+              },
+              "parameters": [
+                "",
+                "1280",
+                "720",
+                ""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": "const scene={},global={},input={},object={};scene.goto=function(a){runtimeScene.requestChange(gdjs.SceneChangeRequest.REPLACE_SCENE,a)},scene.changecolor=function(a,c,d){runtimeScene.setBackgroundColor(a,c,d)},scene.setvar=function(a,b){runtimeScene.getVariables().get(a).setString(b)},scene.getvar=function(a){return runtimeScene.getVariables().get(a).getAsString()},global.setvar=function(a,b){runtimeScene.getGame.getVariables().get(a).setString(b)},global.getvar=function(a){return runtimeScene.getGame.getVariables().get(a).getAsString()},object.colision=function(a,b){try{const c=runtimeScene.getObjects(a)[0],d=runtimeScene.getObjects(b)[0];return gdjs.RuntimeObject.collisionTest(c,d,!1)}catch(a){return!1}},object.touching=function(a){try{const b=runtimeScene.getObjects(a)[0];return b.cursorOnObject(runtimeScene)}catch(a){return a}},object.create=function(b,c,d,e){var f=runtimeScene.createObject(b);f.setX(d),f.setY(e);var f=b,g={};g.load=function(a,b){var c=b[f],d=runtimeScene.getGame(),e=runtimeScene.getObjects(f),g=e[0].getRendererObject();g.texture=c.texture},PIXI.Loader.shared.reset(),PIXI.Loader.shared.add(f,c),PIXI.Loader.shared.load(g.load)},object.move=function(a,b,c){for(const d of runtimeScene.getObjects(a))d.setPosition(b,c)},object.permf=function(a,b,c,d){for(const e of runtimeScene.getObjects(a))e.addForce(b,c,d)},object.del=function(a){for(const b of runtimeScene.getObjects(a))b.deleteFromScene(runtimeScene)},object.getx=function(a){for(const b of runtimeScene.getObjects(a))return parseInt(b.getX())},object.gety=function(a){for(const b of runtimeScene.getObjects(a))return parseInt(b.getY())},input.keycode=function(a){return gdjs.evtTools.input.isKeyPressed(runtimeScene,a)},input.mouse=function(a){return gdjs.evtTools.input.isMouseButtonPressed(runtimeScene,a)};var p2p={};p2p.server={},p2p.client={},p2p.data={},p2p.server.connect=function(a,b,c,d,e){var f=isNaN(b);!1==f&&\"boolean\"==typeof e&&gdjs.evtTools.p2p.useCustomBrokerServer(a,b,c,d,e)},p2p.client.connect=function(a){gdjs.evtTools.p2p.connect(a)},p2p.client.getid=function(){return gdjs.evtTools.p2p.getCurrentId()},p2p.client.sendall=function(a,b=\"\"){gdjs.evtTools.p2p.sendDataToAll(a,b)},p2p.client.sendtoid=function(a,b,c=\"\"){gdjs.evtTools.p2p.sendDataTo(a,b,c)},p2p.client.setid=function(a){gdjs.evtTools.p2p.overrideId(a)},p2p.data.get=function(a){return gdjs.evtTools.p2p.getEventData(a)},p2p.data.geterror=function(){return gdjs.evtTools.p2p.getLastError()};var http={};http.load={},http.send={},http.send.request=function(a,b=\"GET\",c=\"\"){let d=new XMLHttpRequest;return d.open(b,a,!1),d.send([c]),d.responseText},http.load.song=function(a,b=0,c=100,d=1){var e=runtimeScene.getGame().getSoundManager();e.playSoundOnChannel(a,b,!1,c,d)};var ws={};ws.server={},ws.client={},ws.server.connect=function(a,b=\"\"){window.socket=new WebSocket(a,b)},ws.client.onopen=function(a){Function(a)},ws.client.onmessage=function(a){Funtion(a)},ws.client.getmessage=function(){return window.socket.onmessage=function(a){return a.data}},ws.client.send=function(a){window.socket.send(a)},ws.server.close=function(){window.socket.close()};\n\n// movement code\n\n// when w is pressed, move up\nif (input.keycode(\"w\") == true) {\n  object.move(\"hello\", object.getx(\"hello\"), object.gety(\"hello\") - 3)\n}\n\n// when a is pressed, move left\nif (input.keycode(\"a\") == true) {\n  object.move(\"hello\", object.getx(\"hello\") - 3, object.gety(\"hello\"))\n}\n\n// when s is pressed, move down\nif (input.keycode(\"s\") == true) {\n  object.move(\"hello\", object.getx(\"hello\"), object.gety(\"hello\") + 3)\n}\n\n// when d is pressed, move right\nif (input.keycode(\"d\") == true) {\n  object.move(\"hello\", object.getx(\"hello\") + 3, object.gety(\"hello\"))\n}\n\n// borders\n\n// top border\nif (object.gety(\"hello\") >= 62){\n  object.move(\"hello\", object.getx(\"hello\"), 61)\n}\n\n// bottom border\nif (object.gety(\"hello\") <= -1){\n  object.move(\"hello\", object.getx(\"hello\"), 0)\n}\n\n// left border\nif (object.getx(\"hello\") <= -1) {\n  object.move(\"hello\", 0, object.gety(\"hello\"))\n}\n\n// right border\nif (object.getx(\"hello\") >= 107) {\n  object.move(\"hello\", 106, object.gety(\"hello\"))\n}\n\n// enemy spawning code\n\n// adds a permanent force to the enemy with -5 force in the x direction going at 1 pixel per second\nobject.permf(\"enemy\", -5, 0, 1)\n\n// once the enemy is out of the screen, delete the enemy and spawn a new one.\nif (object.getx(\"enemy\") <= -50) {\n  object.del(\"enemy\")\n  object.create(\"enemy\", \"https://media.discordapp.net/attachments/948281490788192279/979795999667126332/asteroid1.png\", 200, Math.floor(Math.random() * 60)) + 20;\n}\n\n// if player (hello) coliding with enemy, change scene to die.\nif (object.colision(\"hello\", \"enemy\") == true) {\n  scene.goto(\"die\")\n}",
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": true
+            }
+          ]
+        },
+        {
+          "folded": true,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ResetTimer"
+              },
+              "parameters": [
+                "",
+                "\"bgcolor\""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": "const scene={},global={},input={},object={};scene.goto=function(a){runtimeScene.requestChange(gdjs.SceneChangeRequest.REPLACE_SCENE,a)},scene.changecolor=function(a,c,d){runtimeScene.setBackgroundColor(a,c,d)},scene.setvar=function(a,b){runtimeScene.getVariables().get(a).setString(b)},scene.getvar=function(a){return runtimeScene.getVariables().get(a).getAsString()},global.setvar=function(a,b){runtimeScene.getGame.getVariables().get(a).setString(b)},global.getvar=function(a){return runtimeScene.getGame.getVariables().get(a).getAsString()},object.colision=function(a,b){try{const c=runtimeScene.getObjects(a)[0],d=runtimeScene.getObjects(b)[0];return gdjs.RuntimeObject.collisionTest(c,d,!1)}catch(a){return!1}},object.touching=function(a){try{const b=runtimeScene.getObjects(a)[0];return b.cursorOnObject(runtimeScene)}catch(a){return a}},object.create=function(b,c,d,e){var f=runtimeScene.createObject(b);f.setX(d),f.setY(e);var f=b,g={};g.load=function(a,b){var c=b[f],d=runtimeScene.getGame(),e=runtimeScene.getObjects(f),g=e[0].getRendererObject();g.texture=c.texture},PIXI.Loader.shared.reset(),PIXI.Loader.shared.add(f,c),PIXI.Loader.shared.load(g.load)},object.move=function(a,b,c){for(const d of runtimeScene.getObjects(a))d.setPosition(b,c)},object.permf=function(a,b,c,d){for(const e of runtimeScene.getObjects(a))e.addForce(b,c,d)},object.del=function(a){for(const b of runtimeScene.getObjects(a))b.deleteFromScene(runtimeScene)},object.getx=function(a){for(const b of runtimeScene.getObjects(a))return parseInt(b.getX())},object.gety=function(a){for(const b of runtimeScene.getObjects(a))return parseInt(b.getY())},input.keycode=function(a){return gdjs.evtTools.input.isKeyPressed(runtimeScene,a)},input.mouse=function(a){return gdjs.evtTools.input.isMouseButtonPressed(runtimeScene,a)};var p2p={};p2p.server={},p2p.client={},p2p.data={},p2p.server.connect=function(a,b,c,d,e){var f=isNaN(b);!1==f&&\"boolean\"==typeof e&&gdjs.evtTools.p2p.useCustomBrokerServer(a,b,c,d,e)},p2p.client.connect=function(a){gdjs.evtTools.p2p.connect(a)},p2p.client.getid=function(){return gdjs.evtTools.p2p.getCurrentId()},p2p.client.sendall=function(a,b=\"\"){gdjs.evtTools.p2p.sendDataToAll(a,b)},p2p.client.sendtoid=function(a,b,c=\"\"){gdjs.evtTools.p2p.sendDataTo(a,b,c)},p2p.client.setid=function(a){gdjs.evtTools.p2p.overrideId(a)},p2p.data.get=function(a){return gdjs.evtTools.p2p.getEventData(a)},p2p.data.geterror=function(){return gdjs.evtTools.p2p.getLastError()};var http={};http.load={},http.send={},http.send.request=function(a,b=\"GET\",c=\"\"){let d=new XMLHttpRequest;return d.open(b,a,!1),d.send([c]),d.responseText},http.load.song=function(a,b=0,c=100,d=1){var e=runtimeScene.getGame().getSoundManager();e.playSoundOnChannel(a,b,!1,c,d)};var ws={};ws.server={},ws.client={},ws.server.connect=function(a,b=\"\"){window.socket=new WebSocket(a,b)},ws.client.onopen=function(a){Function(a)},ws.client.onmessage=function(a){Funtion(a)},ws.client.getmessage=function(){return window.socket.onmessage=function(a){return a.data}},ws.client.send=function(a){window.socket.send(a)},ws.server.close=function(){window.socket.close()};\r\n\r\n// player spawning code after the beginning of the scene\r\nobject.create(\"hello\", \"https://media.discordapp.net/attachments/948281490788192279/979594869515362304/R-3.png\", 0, 10);\r\n",
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ]
+        },
+        {
+          "folded": true,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "SoundPlaying"
+              },
+              "parameters": [
+                "",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": "const scene={},global={},input={},object={};scene.goto=function(a){runtimeScene.requestChange(gdjs.SceneChangeRequest.REPLACE_SCENE,a)},scene.changecolor=function(a,c,d){runtimeScene.setBackgroundColor(a,c,d)},scene.setvar=function(a,b){runtimeScene.getVariables().get(a).setString(b)},scene.getvar=function(a){return runtimeScene.getVariables().get(a).getAsString()},global.setvar=function(a,b){runtimeScene.getGame.getVariables().get(a).setString(b)},global.getvar=function(a){return runtimeScene.getGame.getVariables().get(a).getAsString()},object.colision=function(a,b){try{const c=runtimeScene.getObjects(a)[0],d=runtimeScene.getObjects(b)[0];return gdjs.RuntimeObject.collisionTest(c,d,!1)}catch(a){return!1}},object.touching=function(a){try{const b=runtimeScene.getObjects(a)[0];return b.cursorOnObject(runtimeScene)}catch(a){return a}},object.create=function(b,c,d,e){var f=runtimeScene.createObject(b);f.setX(d),f.setY(e);var f=b,g={};g.load=function(a,b){var c=b[f],d=runtimeScene.getGame(),e=runtimeScene.getObjects(f),g=e[0].getRendererObject();g.texture=c.texture},PIXI.Loader.shared.reset(),PIXI.Loader.shared.add(f,c),PIXI.Loader.shared.load(g.load)},object.move=function(a,b,c){for(const d of runtimeScene.getObjects(a))d.setPosition(b,c)},object.permf=function(a,b,c,d){for(const e of runtimeScene.getObjects(a))e.addForce(b,c,d)},object.del=function(a){for(const b of runtimeScene.getObjects(a))b.deleteFromScene(runtimeScene)},object.getx=function(a){for(const b of runtimeScene.getObjects(a))return parseInt(b.getX())},object.gety=function(a){for(const b of runtimeScene.getObjects(a))return parseInt(b.getY())},input.keycode=function(a){return gdjs.evtTools.input.isKeyPressed(runtimeScene,a)},input.mouse=function(a){return gdjs.evtTools.input.isMouseButtonPressed(runtimeScene,a)};var p2p={};p2p.server={},p2p.client={},p2p.data={},p2p.server.connect=function(a,b,c,d,e){var f=isNaN(b);!1==f&&\"boolean\"==typeof e&&gdjs.evtTools.p2p.useCustomBrokerServer(a,b,c,d,e)},p2p.client.connect=function(a){gdjs.evtTools.p2p.connect(a)},p2p.client.getid=function(){return gdjs.evtTools.p2p.getCurrentId()},p2p.client.sendall=function(a,b=\"\"){gdjs.evtTools.p2p.sendDataToAll(a,b)},p2p.client.sendtoid=function(a,b,c=\"\"){gdjs.evtTools.p2p.sendDataTo(a,b,c)},p2p.client.setid=function(a){gdjs.evtTools.p2p.overrideId(a)},p2p.data.get=function(a){return gdjs.evtTools.p2p.getEventData(a)},p2p.data.geterror=function(){return gdjs.evtTools.p2p.getLastError()};var http={};http.load={},http.send={},http.send.request=function(a,b=\"GET\",c=\"\"){let d=new XMLHttpRequest;return d.open(b,a,!1),d.send([c]),d.responseText},http.load.song=function(a,b=0,c=100,d=1){var e=runtimeScene.getGame().getSoundManager();e.playSoundOnChannel(a,b,!1,c,d)};var ws={};ws.server={},ws.client={},ws.server.connect=function(a,b=\"\"){window.socket=new WebSocket(a,b)},ws.client.onopen=function(a){Function(a)},ws.client.onmessage=function(a){Funtion(a)},ws.client.getmessage=function(){return window.socket.onmessage=function(a){return a.data}},ws.client.send=function(a){window.socket.send(a)},ws.server.close=function(){window.socket.close()};\r\n\r\n// play song for game\r\nhttp.load.song(\"https://cdn.discordapp.com/attachments/948281490788192279/979807251760033852/Blue_Lust.mp3\", 1, 50, 1)",
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ]
+        },
+        {
+          "folded": true,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CompareTimer"
+              },
+              "parameters": [
+                "",
+                "\"bgcolor\"",
+                ">",
+                "0.3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ResetTimer"
+              },
+              "parameters": [
+                "",
+                "\"bgcolor\""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": "const scene={},global={},input={},object={};scene.goto=function(a){runtimeScene.requestChange(gdjs.SceneChangeRequest.REPLACE_SCENE,a)},scene.changecolor=function(a,c,d){runtimeScene.setBackgroundColor(a,c,d)},scene.setvar=function(a,b){runtimeScene.getVariables().get(a).setString(b)},scene.getvar=function(a){return runtimeScene.getVariables().get(a).getAsString()},global.setvar=function(a,b){runtimeScene.getGame.getVariables().get(a).setString(b)},global.getvar=function(a){return runtimeScene.getGame.getVariables().get(a).getAsString()},object.colision=function(a,b){try{const c=runtimeScene.getObjects(a)[0],d=runtimeScene.getObjects(b)[0];return gdjs.RuntimeObject.collisionTest(c,d,!1)}catch(a){return!1}},object.touching=function(a){try{const b=runtimeScene.getObjects(a)[0];return b.cursorOnObject(runtimeScene)}catch(a){return a}},object.create=function(b,c,d,e){var f=runtimeScene.createObject(b);f.setX(d),f.setY(e);var f=b,g={};g.load=function(a,b){var c=b[f],d=runtimeScene.getGame(),e=runtimeScene.getObjects(f),g=e[0].getRendererObject();g.texture=c.texture},PIXI.Loader.shared.reset(),PIXI.Loader.shared.add(f,c),PIXI.Loader.shared.load(g.load)},object.move=function(a,b,c){for(const d of runtimeScene.getObjects(a))d.setPosition(b,c)},object.permf=function(a,b,c,d){for(const e of runtimeScene.getObjects(a))e.addForce(b,c,d)},object.del=function(a){for(const b of runtimeScene.getObjects(a))b.deleteFromScene(runtimeScene)},object.getx=function(a){for(const b of runtimeScene.getObjects(a))return parseInt(b.getX())},object.gety=function(a){for(const b of runtimeScene.getObjects(a))return parseInt(b.getY())},input.keycode=function(a){return gdjs.evtTools.input.isKeyPressed(runtimeScene,a)},input.mouse=function(a){return gdjs.evtTools.input.isMouseButtonPressed(runtimeScene,a)};var p2p={};p2p.server={},p2p.client={},p2p.data={},p2p.server.connect=function(a,b,c,d,e){var f=isNaN(b);!1==f&&\"boolean\"==typeof e&&gdjs.evtTools.p2p.useCustomBrokerServer(a,b,c,d,e)},p2p.client.connect=function(a){gdjs.evtTools.p2p.connect(a)},p2p.client.getid=function(){return gdjs.evtTools.p2p.getCurrentId()},p2p.client.sendall=function(a,b=\"\"){gdjs.evtTools.p2p.sendDataToAll(a,b)},p2p.client.sendtoid=function(a,b,c=\"\"){gdjs.evtTools.p2p.sendDataTo(a,b,c)},p2p.client.setid=function(a){gdjs.evtTools.p2p.overrideId(a)},p2p.data.get=function(a){return gdjs.evtTools.p2p.getEventData(a)},p2p.data.geterror=function(){return gdjs.evtTools.p2p.getLastError()};var http={};http.load={},http.send={},http.send.request=function(a,b=\"GET\",c=\"\"){let d=new XMLHttpRequest;return d.open(b,a,!1),d.send([c]),d.responseText},http.load.song=function(a,b=0,c=100,d=1){var e=runtimeScene.getGame().getSoundManager();e.playSoundOnChannel(a,b,!1,c,d)};var ws={};ws.server={},ws.client={},ws.server.connect=function(a,b=\"\"){window.socket=new WebSocket(a,b)},ws.client.onopen=function(a){Function(a)},ws.client.onmessage=function(a){Funtion(a)},ws.client.getmessage=function(){return window.socket.onmessage=function(a){return a.data}},ws.client.send=function(a){window.socket.send(a)},ws.server.close=function(){window.socket.close()};\n\n// literally for bg color\n\n// delete this if you want\nvar a = Math.floor(Math.random() * 130)\nvar b = Math.floor(Math.random() * 130)\nvar c = Math.floor(Math.random() * 130)\nscene.changecolor(a, b, c);\n",
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 32,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": []
+    },
+    {
+      "b": 0,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "die",
+      "name": "die",
+      "oglFOV": 90,
+      "oglZFar": 500,
+      "oglZNear": 1,
+      "r": 0,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": false,
+      "title": "",
+      "v": 0,
+      "uiSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.8599999999999999,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "NewText",
+          "persistentUuid": "99c36f3d-5e78-4d97-a7d1-e6879512e4bd",
+          "width": 0,
+          "x": 123,
+          "y": -4,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "NewText2",
+          "persistentUuid": "0f117538-8ca9-40f5-bb66-bd07beea900b",
+          "width": 0,
+          "x": 197,
+          "y": 86,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "NewText",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "You Died!",
+          "font": "",
+          "characterSize": 50,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "NewText2",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Retry?",
+          "font": "",
+          "characterSize": 30,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetGameResolutionSize"
+              },
+              "parameters": [
+                "",
+                "480",
+                "270"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "const scene={},global={},input={},object={};scene.goto=function(a){runtimeScene.requestChange(gdjs.SceneChangeRequest.REPLACE_SCENE,a)},scene.changecolor=function(a,c,d){runtimeScene.setBackgroundColor(a,c,d)},scene.setvar=function(a,b){runtimeScene.getVariables().get(a).setString(b)},scene.getvar=function(a){return runtimeScene.getVariables().get(a).getAsString()},global.setvar=function(a,b){runtimeScene.getGame.getVariables().get(a).setString(b)},global.getvar=function(a){return runtimeScene.getGame.getVariables().get(a).getAsString()},object.colision=function(a,b){try{const c=runtimeScene.getObjects(a)[0],d=runtimeScene.getObjects(b)[0];return gdjs.RuntimeObject.collisionTest(c,d,!1)}catch(a){return!1}},object.touching=function(a){try{const b=runtimeScene.getObjects(a)[0];return b.cursorOnObject(runtimeScene)}catch(a){return a}},object.create=function(b,c,d,e){var f=runtimeScene.createObject(b);f.setX(d),f.setY(e);var f=b,g={};g.load=function(a,b){var c=b[f],d=runtimeScene.getGame(),e=runtimeScene.getObjects(f),g=e[0].getRendererObject();g.texture=c.texture},PIXI.Loader.shared.reset(),PIXI.Loader.shared.add(f,c),PIXI.Loader.shared.load(g.load)},object.move=function(a,b,c){for(const d of runtimeScene.getObjects(a))d.setPosition(b,c)},object.permf=function(a,b,c,d){for(const e of runtimeScene.getObjects(a))e.addForce(b,c,d)},object.del=function(a){for(const b of runtimeScene.getObjects(a))b.deleteFromScene(runtimeScene)},object.getx=function(a){for(const b of runtimeScene.getObjects(a))return parseInt(b.getX())},object.gety=function(a){for(const b of runtimeScene.getObjects(a))return parseInt(b.getY())},input.keycode=function(a){return gdjs.evtTools.input.isKeyPressed(runtimeScene,a)},input.mouse=function(a){return gdjs.evtTools.input.isMouseButtonPressed(runtimeScene,a)};var p2p={};p2p.server={},p2p.client={},p2p.data={},p2p.server.connect=function(a,b,c,d,e){var f=isNaN(b);!1==f&&\"boolean\"==typeof e&&gdjs.evtTools.p2p.useCustomBrokerServer(a,b,c,d,e)},p2p.client.connect=function(a){gdjs.evtTools.p2p.connect(a)},p2p.client.getid=function(){return gdjs.evtTools.p2p.getCurrentId()},p2p.client.sendall=function(a,b=\"\"){gdjs.evtTools.p2p.sendDataToAll(a,b)},p2p.client.sendtoid=function(a,b,c=\"\"){gdjs.evtTools.p2p.sendDataTo(a,b,c)},p2p.client.setid=function(a){gdjs.evtTools.p2p.overrideId(a)},p2p.data.get=function(a){return gdjs.evtTools.p2p.getEventData(a)},p2p.data.geterror=function(){return gdjs.evtTools.p2p.getLastError()};var http={};http.load={},http.send={},http.send.request=function(a,b=\"GET\",c=\"\"){let d=new XMLHttpRequest;return d.open(b,a,!1),d.send([c]),d.responseText},http.load.song=function(a,b=0,c=100,d=1){var e=runtimeScene.getGame().getSoundManager();e.playSoundOnChannel(a,b,!1,c,d)};var ws={};ws.server={},ws.client={},ws.server.connect=function(a,b=\"\"){window.socket=new WebSocket(a,b)},ws.client.onopen=function(a){Function(a)},ws.client.onmessage=function(a){Funtion(a)},ws.client.getmessage=function(){return window.socket.onmessage=function(a){return a.data}},ws.client.send=function(a){window.socket.send(a)},ws.server.close=function(){window.socket.close()};\n\nif (object.touching(\"NewText2\") == true && input.mouse(\"Left\") == true){\n    scene.goto(\"main\")\n}",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 16777215,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": []
+    }
+  ],
+  "externalEvents": [],
+  "eventsFunctionsExtensions": [
+    {
+      "author": "",
+      "category": "",
+      "description": "Funcions That Extend The Capabilities Of GDevelop",
+      "extensionNamespace": "",
+      "fullName": "URL Funcions",
+      "helpPath": "",
+      "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0ibWRpLXdpZmktcGx1cyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGQ9Ik0xMiA2QzguNjIgNiA1LjUgNy4xMiAzIDlMMS4yIDYuNkM0LjIxIDQuMzQgNy45NSAzIDEyIDNTMTkuNzkgNC4zNCAyMi44IDYuNkwyMSA5QzE4LjUgNy4xMiAxNS4zOCA2IDEyIDZNMTIgMTVDMTAuNjUgMTUgOS40IDE1LjQ1IDguNCAxNi4yTDEyIDIxTDEzLjA0IDE5LjYxQzEzIDE5LjQxIDEzIDE5LjIxIDEzIDE5QzEzIDE3LjY2IDEzLjQ0IDE2LjQzIDE0LjE5IDE1LjQzQzEzLjUgMTUuMTYgMTIuNzcgMTUgMTIgMTVNMTYuODQgMTMuNDFDMTcuMTggMTMuMjcgMTcuNTUgMTMuMTcgMTcuOTIgMTMuMUwxOS4yIDExLjRDMTcuMTkgOS44OSAxNC43IDkgMTIgOVM2LjgxIDkuODkgNC44IDExLjRMNi42IDEzLjhDOC4xIDEyLjY3IDkuOTcgMTIgMTIgMTJDMTMuNzggMTIgMTUuNDQgMTIuNSAxNi44NCAxMy40MU0yMCAxOFYxNUgxOFYxOEgxNVYyMEgxOFYyM0gyMFYyMEgyM1YxOEgyMFoiIC8+PC9zdmc+",
+      "name": "URLFN",
+      "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/wifi-plus.svg",
+      "shortDescription": "Funcions That Extend The Capabilities Of GDevelop",
+      "version": "1.0.0",
+      "tags": [],
+      "authorIds": [],
+      "dependencies": [],
+      "eventsFunctions": [
+        {
+          "description": "Plays Sound From URI, Does Not Loop.",
+          "fullName": "Play Sound From URL, Loops",
+          "functionType": "Action",
+          "group": "",
+          "name": "PlaySNDLP",
+          "private": false,
+          "sentence": "play _PARAM1_ at volume: _PARAM2_, Pitch: _PARAM3_, Channel _PARAM4_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": "var url = eventsFunctionContext.getArgument(\"URL\");\nvar vol = eventsFunctionContext.getArgument(\"Volume\");\nvar pt = eventsFunctionContext.getArgument(\"Pitch\");\nvar channel = eventsFunctionContext.getArgument(\"Channel\");\nvar sound_manager = runtimeScene.getGame().getSoundManager(); \n// get the sound manager \nsound_manager.playSoundOnChannel(url, channel, true, vol, pt); \n// play random sound, channel = 0, loop = false, volume = 100, pitch = 1",
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "URL",
+              "longDescription": "",
+              "name": "URL",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "string"
+            },
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "Volume",
+              "longDescription": "",
+              "name": "Volume",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "expression"
+            },
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "Pitch",
+              "longDescription": "",
+              "name": "Pitch",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "expression"
+            },
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "Channel",
+              "longDescription": "",
+              "name": "Channel",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Plays Sound From URI, Does Not Loop.",
+          "fullName": "Play Sound From URL, No Loop",
+          "functionType": "Action",
+          "group": "",
+          "name": "PlaySND",
+          "private": false,
+          "sentence": "play _PARAM1_ at volume: _PARAM2_, Pitch: _PARAM3_, Channel _PARAM4_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": "var url = eventsFunctionContext.getArgument(\"URL\");\nvar vol = eventsFunctionContext.getArgument(\"Volume\");\nvar pt = eventsFunctionContext.getArgument(\"Pitch\");\nvar channel = eventsFunctionContext.getArgument(\"Channel\");\nvar sound_manager = runtimeScene.getGame().getSoundManager(); \n// get the sound manager \nsound_manager.playSoundOnChannel(url, channel, false, vol, pt); \n// play random sound, channel = 0, loop = false, volume = 100, pitch = 1",
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "URL",
+              "longDescription": "",
+              "name": "URL",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "string"
+            },
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "Volume",
+              "longDescription": "",
+              "name": "Volume",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "expression"
+            },
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "Pitch",
+              "longDescription": "",
+              "name": "Pitch",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "expression"
+            },
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "Channel",
+              "longDescription": "",
+              "name": "Channel",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        }
+      ],
+      "eventsBasedBehaviors": []
+    }
+  ],
+  "externalLayouts": [
+    {
+      "associatedLayout": "",
+      "name": "Untitled external layout",
+      "instances": [],
+      "editionSettings": {}
+    }
+  ],
+  "externalSourceFiles": []
+}
