@@ -17,7 +17,11 @@
 There Are 2 Ways on how to use this.
 
 1. Embed Into Javascript Code Block (RECOMMENDED)
-![example](https://cdn.discordapp.com/attachments/948281490788192279/999859264074043522/example1.mp4)
+
+https://user-images.githubusercontent.com/60990459/180346971-d2db19cb-085b-48d0-a7e1-8499a7527ae7.mp4
+
+2. Use the Auto-Embed Feature Once Game Starts. [(Not Recommended)](docs/unsafe.md)
+
 
 Example: Add And Create Object Instance
 ```javascript
